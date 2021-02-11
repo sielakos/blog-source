@@ -2,13 +2,12 @@ copy:
 	cp ../markdown-blog/target/release/markdown-blog ./
 
 build: copy
-	./markdown-blog
-	cp -r ./build ../sielakos.github.io
+	./markdown-blog -t ../sielakos.github.io
 
 deploy: build
-	cd ../sielakos.github.io
-	git add .
-	git commit -nm 'update'
+	cd ../sielakos.github.io && \
+	git add . && \
+	git commit -nm 'update' && \
 	git push
 
 serve: copy
